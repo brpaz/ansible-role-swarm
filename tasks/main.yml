@@ -3,7 +3,7 @@
   ansible.builtin.command: docker info
   register: docker_info
   changed_when: false
-  check_mode: no
+  check_mode: false
 
 - name: Initialize Docker Swarm
   community.docker.docker_swarm:
@@ -17,4 +17,3 @@
     name: "{{ swarm_network_name }}"
     driver: overlay
     attachable: true
-  when: swarm_info.changed
