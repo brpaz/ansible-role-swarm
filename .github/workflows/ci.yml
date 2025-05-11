@@ -15,25 +15,24 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  PYTHON_VERSION: 3.12
+
 jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: devenv shell bash -- -e {0}
     steps:
       - uses: actions/checkout@v4
 
-      - uses: cachix/install-nix-action@v31
-
-      - uses: cachix/cachix-action@v16
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          name: devenv
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: "pip"
 
-      - name: Install devenv.sh
-        shell: bash
-        run: nix profile install nixpkgs#devenv
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
       - name: Run ansible lint
         run: ansible-lint .
