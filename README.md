@@ -65,6 +65,7 @@ This role includes the following variables for configuration:
 | ---------------------- | ------------------------------------ | ----------------------------------------------------------- |
 | `swarm_advertise_addr` | `{{ ansible_default_ipv4.address }}` | IP address to advertise for this node                       |
 | `swarm_network`        | `swarm_network`                      | The name of the default Swarm overlay network to be created |
+
 ## Dependencies
 
 - community.docker collection
