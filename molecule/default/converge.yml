@@ -1,0 +1,26 @@
+- name: Converge
+  hosts: all
+  vars:
+    docker_install_compose: false
+
+  pre_tasks:
+    - name: Update apt cache.
+      ansible.builtin.apt: update_cache=yes cache_valid_time=600
+      when: ansible_os_family == 'Debian'
+
+    - name: Install Ansible dependencies.
+      ansible.builtin.package:
+        name:
+          - python3-pip
+          - python3-docker
+        state: present
+      when: ansible_os_family == 'Debian'
+
+    - name: Install docker
+      ansible.builtin.include_role:
+        name: geerlingguy.docker
+
+  tasks:
+    - name: Include Docker Swarm role
+      ansible.builtin.include_role:
+        name: brpaz.swarm

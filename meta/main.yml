@@ -1,0 +1,25 @@
+galaxy_info:
+  role_name: swarm
+  namespace: brpaz
+  author: Bruno Paz
+  description: An ansible role to setup a Docker swarm cluster
+  license: MIT
+  min_ansible_version: "2.10"
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+    - name: Fedora
+      versions:
+        - all
+
+  galaxy_tags:
+    - docker
+    - swarm
+
+collections:
+  - community.docker

@@ -1,0 +1,20 @@
+---
+- name: Check if Swarm is already initialized
+  ansible.builtin.command: docker info
+  register: docker_info
+  changed_when: false
+  check_mode: no
+
+- name: Initialize Docker Swarm
+  community.docker.docker_swarm:
+    state: present
+    advertise_addr: "{{ swarm_advertise_addr }}"
+  when: "'Swarm: active' not in docker_info.stdout"
+  register: swarm_info
+
+- name: Create overlay network
+  community.docker.docker_network:
+    name: "{{ swarm_network_name }}"
+    driver: overlay
+    attachable: true
+  when: swarm_info.changed

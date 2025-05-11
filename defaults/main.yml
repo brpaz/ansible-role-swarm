@@ -1,0 +1,4 @@
+---
+# IP address to advertise for this node in the Swarm cluster
+swarm_advertise_addr: "{{ ansible_default_ipv4.address }}"
+swarm_network_name: "swarm_network"
