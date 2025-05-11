@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## v0.1.2 - 2025-05-11
+
+### What's Changed
+
+- chore: linting @brpaz (#6)
+  **Full Changelog**: [https://github.com/brpaz/ansible-role-swarm/compare/v0.1.1...v0.1.2](https://github.com/brpaz/ansible-role-swarm/compare/v0.1.1...v0.1.2)
+
 ## v0.1.1 - 2025-05-11
 
 ### What's Changed
