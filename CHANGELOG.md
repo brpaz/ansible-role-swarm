@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## v0.1.3 - 2025-05-11
+
+### What's Changed
+
+- ci(github-actions): fix branch name when publishing to Ansible galaxy @brpaz (#7)
+  **Full Changelog**: [https://github.com/brpaz/ansible-role-swarm/compare/v0.1.2...v0.1.3](https://github.com/brpaz/ansible-role-swarm/compare/v0.1.2...v0.1.3)
+
 ## v0.1.2 - 2025-05-11
 
 ### What's Changed
